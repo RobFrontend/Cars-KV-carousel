@@ -1,7 +1,7 @@
 import React, { Suspense } from "react";
 
 import Loading from "./components/Loading";
-import { Fade, Slide } from "react-awesome-reveal";
+import { Fade } from "react-awesome-reveal";
 
 function App() {
   const LazyComponent = React.lazy(() => import("./components/KVsCarousel"));
@@ -10,14 +10,14 @@ function App() {
       <Suspense fallback={<Loading />}>
         <LazyComponent />
       </Suspense>
-      <div className="bg-neutral-950 text-neutral-50 px-8 pt-32 overflow-hidden max-sm:px-4 pb-24">
+      <div className="bg-gradient-to-b from-neutral-950 to-neutral-900 text-neutral-50 px-8 pt-32 overflow-hidden max-sm:px-4 pb-24">
         <Fade triggerOnce delay={250}>
           <div className="grid gap-8">
             <div className="pb-4">
-              <h3 className="text-3xl text-red-700">
+              <h3 className="text-3xl text-red-700 max-xl:text-2xl max-sm:text-xl">
                 The Evolution of Speed and Technology
               </h3>
-              <h2 className="text-5xl uppercase">
+              <h2 className="text-5xl uppercase max-xl:text-4xl max-sm:text-3xl">
                 From Beginnings to Modern Marvels
               </h2>
             </div>
@@ -99,11 +99,15 @@ function App() {
           </div>
         </Fade>
       </div>
-      <div className="bg-neutral-950 text-neutral-50  pt-12 overflow-hidden max-sm:px-4 pb-24 grid justify-center items-center">
+      <div className=" text-neutral-50  pt-12 overflow-hidden max-sm:px-4 pb-24 grid justify-center items-center bg-gradient-to-t from-neutral-950 to-neutral-900">
         <Fade triggerOnce delay={500}>
           <div className="px-8 pb-12">
-            <h3 className="text-3xl text-red-700">Icons of the Track</h3>
-            <h2 className="text-5xl uppercase">The Teams and Drivers</h2>
+            <h3 className="text-3xl text-red-700 max-xl:text-2xl max-sm:text-xl">
+              Icons of the Track
+            </h3>
+            <h2 className="text-5xl uppercase max-xl:text-4xl max-sm:text-3xl">
+              The Teams and Drivers
+            </h2>
           </div>
           <div className="grid grid-cols-3 max-sm:grid-cols-1 max-sm:gap-6 ">
             <div className="max-sm:flex max-sm:justify-center max-sm:items-center ">
@@ -114,7 +118,7 @@ function App() {
               />
             </div>
             <div className="text-center grid content-center justify-items-center px-24 sm:col-span-2 max-lg:px-12 max-md:px-8">
-              <h4 className="text-2xl pb-4 ">
+              <h4 className="text-2xl pb-4 max-xl:text-xl max-sm:text-lg">
                 A Battle of Strategy, Skill, and Precision
               </h4>
               <p className="font-light tracking-wide max-md:text-justify max-md:text-sm">
