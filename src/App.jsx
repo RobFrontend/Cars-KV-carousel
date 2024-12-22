@@ -10,7 +10,7 @@ function App() {
       <Suspense fallback={<Loading />}>
         <LazyComponent />
       </Suspense>
-      <div className="bg-gradient-to-b from-neutral-950 to-neutral-900 text-neutral-50 px-8 pt-32 overflow-hidden max-sm:px-4 pb-24 ">
+      <div className="bg-neutral-950 text-neutral-50 px-8 pt-32 overflow-hidden max-sm:px-4 pb-24 ">
         <Fade triggerOnce delay={250}>
           <div className="grid gap-8 ">
             <div className="pb-4">
@@ -101,9 +101,9 @@ function App() {
       </div>
       <div className="flex">
         <div className="border-y-[1px]  border-red-700 w-[50%]"></div>
-        <div className="border-y-[1px]  border-neutral-900 w-[50%]"></div>
+        <div className="border-y-[1px]  border-neutral-950 w-[50%]"></div>
       </div>
-      <div className=" text-neutral-50 overflow-hidden bg-gradient-to-t from-neutral-950 to-neutral-900 pt-12 max-sm:px-4 pb-24  grid justify-center items-center ">
+      <div className="bg-neutral-950 text-neutral-50 overflow-hidden pt-12 max-sm:px-4 pb-24  grid justify-center items-center object-cover ">
         <Fade triggerOnce delay={500}>
           <div className="px-8 pb-12">
             <h3 className="text-3xl text-red-700 max-xl:text-2xl max-sm:text-xl">
