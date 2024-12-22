@@ -10,9 +10,9 @@ function App() {
       <Suspense fallback={<Loading />}>
         <LazyComponent />
       </Suspense>
-      <div className="bg-gradient-to-b from-neutral-950 to-neutral-900 text-neutral-50 px-8 pt-32 overflow-hidden max-sm:px-4 pb-24">
+      <div className="bg-gradient-to-b from-neutral-950 to-neutral-900 text-neutral-50 px-8 pt-32 overflow-hidden max-sm:px-4 pb-24 ">
         <Fade triggerOnce delay={250}>
-          <div className="grid gap-8">
+          <div className="grid gap-8 ">
             <div className="pb-4">
               <h3 className="text-3xl text-red-700 max-xl:text-2xl max-sm:text-xl">
                 The Evolution of Speed and Technology
@@ -21,12 +21,12 @@ function App() {
                 From Beginnings to Modern Marvels
               </h2>
             </div>
-            <div className="flex gap-8 justify-center items-center max-lg:gap-6 max-sm:gap-4">
+            <div className="flex gap-8 justify-center mx-auto  items-center max-lg:gap-6 max-sm:gap-4 border-2 border-red-700/0  p-12 hover:border-red-700 rounded-2xl max-w-[1720px] max-xl:p-8 max-lg:p-6 max-md:border-0 transition-all duration-300">
               <div>
                 <img
                   src="f1old.webp"
                   alt="f1 car"
-                  className="w-full h-full imgCard transition-all duration-500"
+                  className="w-full h-full imgCard transition-all duration-500 rounded-lg max-md:rounded-none"
                 />
               </div>
 
@@ -34,7 +34,7 @@ function App() {
                 <img
                   src="f1modern.webp"
                   alt="f1 car"
-                  className="w-full h-full imgCard transition-all duration-500"
+                  className="w-full h-full imgCard transition-all duration-500 rounded-lg max-md:rounded-none"
                 />
               </div>
             </div>
@@ -99,7 +99,11 @@ function App() {
           </div>
         </Fade>
       </div>
-      <div className=" text-neutral-50  pt-12 overflow-hidden max-sm:px-4 pb-24 grid justify-center items-center bg-gradient-to-t from-neutral-950 to-neutral-900">
+      <div className="flex">
+        <div className="border-y-[1px]  border-red-700 w-[50%]"></div>
+        <div className="border-y-[1px]  border-neutral-900 w-[50%]"></div>
+      </div>
+      <div className=" text-neutral-50 overflow-hidden bg-gradient-to-t from-neutral-950 to-neutral-900 pt-12 max-sm:px-4 pb-24  grid justify-center items-center ">
         <Fade triggerOnce delay={500}>
           <div className="px-8 pb-12">
             <h3 className="text-3xl text-red-700 max-xl:text-2xl max-sm:text-xl">
