@@ -49,3 +49,24 @@ body {
 .imgCard:active {
   transform: translateY(3px) scale(1.02);
 }
+/* ===== Scrollbar CSS ===== */
+/* Firefox */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #a3a3a3 #0a0a0a;
+}
+
+/* Chrome, Edge, and Safari */
+*::-webkit-scrollbar {
+  width: 8px;
+}
+
+*::-webkit-scrollbar-track {
+  background: #0a0a0a;
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: #0a0a0a;
+  border-radius: 0px;
+  border: 1px solid #000000;
+}

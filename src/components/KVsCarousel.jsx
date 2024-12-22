@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { cardvisuals, copyvisuals, kvisuals } from "../data/data";
 import { useEffect } from "react";
 
@@ -11,6 +11,41 @@ function KVsCarousel() {
   const [currentKV, setCurrentKV] = useState(kvArr.at(indexKv));
   const [currentCopy, setCurrentCopy] = useState(copyArr.at(indexKv));
   const [move, setMove] = useState("");
+  const [fullScreen, setFullScreen] = useState(false);
+
+  const scrollRef = useRef(null);
+
+  useEffect(function () {
+    const handleScroll = () => {
+      // Jeśli użytkownik jest na samej górze strony
+      if (window.scrollY === 0) {
+        setFullScreen(false);
+      }
+    };
+    // Dodaj nasłuchiwacz scroll
+    window.addEventListener("scroll", handleScroll);
+    if (scrollRef.current) {
+      const scrollDiv = scrollRef.current;
+
+      const handleIntersection = (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setFullScreen(true);
+          }
+        });
+      };
+
+      const observer = new IntersectionObserver(handleIntersection, {
+        root: null,
+        threshold: 0.1,
+      });
+
+      observer.observe(scrollDiv);
+      return () => {
+        observer.unobserve(scrollDiv);
+      };
+    }
+  }, []);
 
   useEffect(
     function () {
@@ -48,57 +83,68 @@ function KVsCarousel() {
     }
   }
   return (
-    <div className="relative bg-neutral-950 min-h-screen w-full px-12 grid items-center overflow-hidden text-neutral-50 max-xl:px-8 max-lg:px-0 ">
-      <div>
-        <div
-          className={`h-[90vh] overflow-hidden transition-all duration-500 rounded-lg max-lg:h-screen max-lg:rounded-none`}
-          // className={`h-[100vh] overflow-hidden transition-all duration-500`}
-          style={{
-            backgroundImage: `url(${currentKV})`,
-            backgroundPosition: "center",
-            backgroundSize: "cover",
-          }}
-        >
+    <>
+      <div
+        className={` ${
+          fullScreen ? "" : `px-12`
+        }  relative bg-neutral-950 min-h-screen w-full grid items-center overflow-hidden text-neutral-50 max-xl:px-8 max-lg:px-0 transition-all duration-500`}
+      >
+        <div>
           <div
-            className={`${move} grid px-12 py-[200px] max-2xl:py-[100px] max-[1800px]:w-[65%] max-xl:py-[100px] max-lg:w-[80%] drop-shadow-lg gap-2 w-[50%] duration-500 max-md:w-full max-sm:drop-shadow-xl max-md:px-8`}
+            className={`${
+              fullScreen ? `h-[100vh]` : `h-[90vh] rounded-lg`
+            } overflow-hidden transition-all duration-500 g max-lg:h-screen max-lg:rounded-none`}
+            // className={`h-[100vh] overflow-hidden transition-all duration-500`}
+            style={{
+              backgroundImage: `url(${currentKV})`,
+              backgroundPosition: "center",
+              backgroundSize: "cover",
+            }}
           >
-            <h2 className="text-6xl  font-bold uppercase max-xl:text-4xl max-sm:text-3xl">
-              {currentCopy.h2}
-              <br></br>
-              {currentCopy.h2b}
-            </h2>
-            <h1
-              className={`text-7xl font-bold ${currentCopy.color} uppercase max-xl:text-5xl max-sm:text-4xl`}
+            <div
+              className={`${move} grid px-12 py-[200px] max-2xl:py-[100px] max-[1800px]:w-[65%] max-xl:py-[100px] max-lg:w-[80%] drop-shadow-lg gap-2 w-[50%] duration-500 max-md:w-full max-sm:drop-shadow-xl max-md:px-8`}
             >
-              {currentCopy.h1}
-            </h1>
+              <h2 className="text-6xl  font-bold uppercase max-xl:text-4xl max-sm:text-3xl">
+                {currentCopy.h2}
+                <br></br>
+                {currentCopy.h2b}
+              </h2>
+              <h1
+                className={`text-7xl font-bold ${currentCopy.color} uppercase max-xl:text-5xl max-sm:text-4xl`}
+              >
+                {currentCopy.h1}
+              </h1>
 
-            <p className="text-2xl max-xl:text-lg max-sm:text-base">
-              {currentCopy.p}
-            </p>
+              <p className="text-2xl max-xl:text-lg max-sm:text-base">
+                {currentCopy.p}
+              </p>
+            </div>
+          </div>
+          <div
+            className="absolute bottom-[20%] translate-y-[50%] opacity-80  right-[6%] flex gap-4 h-[15vh] hover:h-[20vh] hover:right-[1%] hover:opacity-100  transition-all duration-300 max-lg:h-[20vh] max-lg:opacity-100 max-lg:right-[1%] max-lg:gap-3 max-md:max-h-[15vh] max-md:px-4 "
+            onMouseEnter={() => setIsHover(true)}
+            onMouseLeave={() => setIsHover(false)}
+          >
+            {cardArr.map((card) => (
+              <div
+                key={card.id}
+                className="cursor-pointer "
+                onClick={() => handleClick(card.id)}
+              >
+                <img
+                  src={card.image}
+                  alt="card"
+                  className="h-full w-auto max-[360px]:h-auto opacity-80 rounded-md hover:opacity-100 transition-all duration-300 cardShadow  imgCard"
+                />
+              </div>
+            ))}
           </div>
         </div>
-        <div
-          className="absolute bottom-[20%] translate-y-[50%] opacity-80  right-[6%] flex gap-4 h-[15vh] hover:h-[20vh] hover:right-[1%] hover:opacity-100  transition-all duration-300 max-lg:h-[20vh] max-lg:opacity-100 max-lg:right-[1%] max-lg:gap-3 max-md:max-h-[15vh] max-md:px-4 "
-          onMouseEnter={() => setIsHover(true)}
-          onMouseLeave={() => setIsHover(false)}
-        >
-          {cardArr.map((card) => (
-            <div
-              key={card.id}
-              className="cursor-pointer "
-              onClick={() => handleClick(card.id)}
-            >
-              <img
-                src={card.image}
-                alt="card"
-                className="h-full w-auto max-[360px]:h-auto opacity-80 rounded-md hover:opacity-100 transition-all duration-300 cardShadow  imgCard"
-              />
-            </div>
-          ))}
-        </div>
       </div>
-    </div>
+      <div ref={scrollRef} className="absolute opacity-0 -z-50">
+        <h1>SCROLL VH</h1>
+      </div>
+    </>
   );
 }
 

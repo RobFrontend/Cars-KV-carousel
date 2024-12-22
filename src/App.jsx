@@ -9,6 +9,13 @@ function App() {
       <Suspense fallback={<Loading />}>
         <LazyComponent />
       </Suspense>
+      <div>
+        <h1>xD</h1>
+        <h1>xD</h1>
+        <h1>xD</h1>
+        <h1>xD</h1>
+        <h1>xD</h1>
+      </div>
     </div>
   );
 }
