@@ -93,6 +93,36 @@ function App() {
           </div>
         </div>
       </div>
+      <div className="bg-neutral-950 text-neutral-50  pt-12 overflow-hidden max-sm:px-4 pb-24 grid justify-center items-center">
+        <div className="px-8 pb-12">
+          <h3 className="text-3xl text-red-700">Icons of the Track</h3>
+          <h2 className="text-5xl uppercase">The Teams and Drivers</h2>
+        </div>
+        <div className="grid grid-cols-3 max-sm:grid-cols-1 max-sm:gap-6 ">
+          <div className="max-sm:flex max-sm:justify-center max-sm:items-center ">
+            <img
+              src="f1team.webp"
+              alt="f1 team"
+              className="h-full w-full max-sm:max-w-[75%] max-[475px]:max-w-[100%]"
+            />
+          </div>
+          <div className="text-center grid content-center justify-items-center px-24 sm:col-span-2 max-lg:px-12 max-md:px-8">
+            <h4 className="text-2xl pb-4 ">
+              A Battle of Strategy, Skill, and Precision
+            </h4>
+            <p className="font-light tracking-wide max-md:text-justify max-md:text-sm">
+              Formula 1 is more than just cars—it&apos;s a battle of brilliant
+              minds and fearless drivers. Teams like Ferrari, Mercedes, and Red
+              Bull bring cutting-edge innovation, while drivers like Lewis
+              Hamilton and Ayrton Senna have become legends on the track. In
+              Formula 1, every second counts. From pit stop strategies to daring
+              overtakes, the drama unfolds at every turn. Witness rivalries,
+              nail-biting finishes, and the relentless pursuit of the
+              championship title.
+            </p>
+          </div>
+        </div>
+      </div>
     </div>
   );
 }
