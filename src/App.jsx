@@ -1,9 +1,14 @@
-import KVsCarousel from "./components/KVsCarousel";
+import React, { Suspense } from "react";
+
+import Loading from "./components/Loading";
 
 function App() {
+  const LazyComponent = React.lazy(() => import("./components/KVsCarousel"));
   return (
     <div>
-      <KVsCarousel />
+      <Suspense fallback={<Loading />}>
+        <LazyComponent />
+      </Suspense>
     </div>
   );
 }

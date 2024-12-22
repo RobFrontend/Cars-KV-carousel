@@ -48,7 +48,7 @@ function KVsCarousel() {
     }
   }
   return (
-    <div className="relative bg-neutral-950 min-h-screen w-full px-12 grid items-center overflow-hidden text-slate-50 max-xl:px-8 max-lg:px-0 ">
+    <div className="relative bg-neutral-950 min-h-screen w-full px-12 grid items-center overflow-hidden text-neutral-50 max-xl:px-8 max-lg:px-0 ">
       <div>
         <div
           className={`h-[90vh] overflow-hidden transition-all duration-500 rounded-lg max-lg:h-screen max-lg:rounded-none`}
