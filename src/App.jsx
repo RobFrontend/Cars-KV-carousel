@@ -10,7 +10,7 @@ function App() {
       className="mainBG"
       style={{
         backgroundImage:
-          "linear-gradient(rgba(10, 10, 10, 0.85), rgba(10, 10, 10, 0.85)), url('bbblurry.svg')",
+          "linear-gradient(rgba(10, 10, 10, 0.85), rgba(10, 10, 10, 0.85)), url('bbblurry.png')",
       }}
     >
       <div className="mainBGBox">
