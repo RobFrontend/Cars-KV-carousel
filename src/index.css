@@ -54,6 +54,10 @@ body {
   transform: scale(1.05);
 }
 
+img {
+  backface-visibility: hidden;
+}
+
 .imgCard:active {
   transform: translateY(3px) scale(1.02);
 }
