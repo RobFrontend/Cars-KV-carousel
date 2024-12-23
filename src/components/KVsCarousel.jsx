@@ -87,7 +87,7 @@ function KVsCarousel() {
       <div
         className={` ${
           fullScreen ? "" : `px-12`
-        }  relative bg-neutral-950 min-h-screen w-full grid items-center overflow-hidden text-neutral-50 max-xl:px-8 max-lg:px-0 transition-all duration-500`}
+        }  relative  min-h-screen w-full grid items-center overflow-hidden text-neutral-50 max-xl:px-8 max-lg:px-0 transition-all duration-500`}
       >
         <div>
           <div
