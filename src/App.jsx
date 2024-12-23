@@ -10,7 +10,7 @@ function App() {
       className="mainBG"
       style={{
         backgroundImage:
-          "linear-gradient(rgba(10, 10, 10, 0.85), rgba(10, 10, 10, 0.85)), url('bbblurry.png')",
+          "linear-gradient(rgba(10, 10, 10, 0.85), rgba(10, 10, 10, 0.85)), url('bgblur-red.png')",
       }}
     >
       <Suspense fallback={<Loading />}>
@@ -27,12 +27,12 @@ function App() {
                 From Beginnings to Modern Marvels
               </h2>
             </div>
-            <div className="flex gap-8 justify-center mx-auto  items-center max-lg:gap-6 max-sm:gap-4 border-2 border-red-700/0  p-12 hover:border-red-700 rounded-2xl max-w-[1720px] max-xl:p-8 max-lg:p-6 max-md:border-0 transition-all duration-300">
+            <div className="flex gap-8 justify-center mx-auto  items-center max-lg:gap-6 max-sm:gap-4 border-2 border-red-700/0  p-12 hover:border-red-700 rounded-2xl max-w-[1720px] max-xl:p-8 max-lg:p-6 max-md:border-0 transition-all duration-300 hovechildren">
               <div>
                 <img
                   src="f1old.webp"
                   alt="f1 car"
-                  className="w-full h-full imgCard transition-all duration-500 rounded-lg max-md:rounded-none"
+                  className="w-full h-full imgCard transition-all duration-500 hover:rounded-lg max-md:rounded-none"
                 />
               </div>
 
@@ -40,7 +40,7 @@ function App() {
                 <img
                   src="f1modern.webp"
                   alt="f1 car"
-                  className="w-full h-full imgCard transition-all duration-500 rounded-lg max-md:rounded-none"
+                  className="w-full h-full imgCard transition-all duration-500 hover:rounded-lg max-md:rounded-none"
                 />
               </div>
             </div>

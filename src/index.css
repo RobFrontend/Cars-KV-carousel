@@ -15,11 +15,15 @@ body {
 }
 .mainBG {
   /* background: linear-gradient(rgba(10, 10, 10, 0.7), rgba(10, 10, 10, 0.7)),
-    url("bbblurry.png"); */
+    url("bgblur-red.png"); */
   background-position: center;
   background-size: cover;
   background-attachment: fixed;
   background-color: #0a0a0a;
+}
+
+.hovechildren:hover div img {
+  border-radius: 0.5rem;
 }
 
 .cardShadow {
