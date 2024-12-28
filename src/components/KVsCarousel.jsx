@@ -1,15 +1,18 @@
 import { useRef, useState } from "react";
-import { cardvisuals, copyvisuals, kvisuals } from "../data/data";
+import { copyvisuals } from "../data/data";
 import { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { changeIndex } from "../features/counterSlice";
 
 function KVsCarousel() {
-  const kvArr = kvisuals;
-  const cardArr = cardvisuals;
-  const copyArr = copyvisuals;
+  const count = useSelector((state) => state.counter.value);
+  const dispatch = useDispatch();
+
+  const kvArr = copyvisuals;
   const [isHover, setIsHover] = useState(false);
   const [indexKv, setIndexKv] = useState(0);
-  const [currentKV, setCurrentKV] = useState(kvArr.at(indexKv));
-  const [currentCopy, setCurrentCopy] = useState(copyArr.at(indexKv));
+  const [currentKV, setCurrentKV] = useState(kvArr.at(count).kv);
+  const [currentCopy, setCurrentCopy] = useState(kvArr.at(count));
   const [move, setMove] = useState("");
   const [fullScreen, setFullScreen] = useState(false);
 
@@ -47,27 +50,28 @@ function KVsCarousel() {
     }
   }, []);
 
-  useEffect(
-    function () {
-      if (!isHover) {
-        const interval = setInterval(() => {
-          setMove("copyAnim");
-          setIndexKv((prevIndex) => {
-            const nextIndex = (prevIndex + 1) % kvArr.length;
-            setCurrentKV(kvArr.at(nextIndex));
-            setCurrentCopy(copyArr.at(nextIndex));
-            return nextIndex;
-          });
-          const timeout = setTimeout(() => {
-            setMove("");
-          }, 1000);
-          return () => clearTimeout(timeout);
-        }, 5000);
-        return () => clearInterval(interval);
-      }
-    },
-    [indexKv, currentKV, isHover, kvArr, currentCopy, copyArr, setMove]
-  );
+  // useEffect(
+  //   function () {
+  //     if (!isHover) {
+  //       const interval = setInterval(() => {
+  //         setMove("copyAnim");
+  //         setIndexKv((prevIndex) => {
+  //           const nextIndex = (prevIndex + 1) % kvArr.length;
+  //           dispatch(changeIndex(nextIndex));
+  //           setCurrentKV(kvArr.at(nextIndex).kv);
+  //           setCurrentCopy(kvArr.at(nextIndex));
+  //           return nextIndex;
+  //         });
+  //         const timeout = setTimeout(() => {
+  //           setMove("");
+  //         }, 1000);
+  //         return () => clearTimeout(timeout);
+  //       }, 5000);
+  //       return () => clearInterval(interval);
+  //     }
+  //   },
+  //   [indexKv, currentKV, isHover, kvArr, currentCopy, setMove, count, dispatch]
+  // );
 
   function handleClick(id) {
     if (id !== indexKv) {
@@ -75,11 +79,11 @@ function KVsCarousel() {
       setTimeout(() => {
         setMove("");
       }, 500);
-
+      dispatch(changeIndex(id));
       // cardArr.push(cardArr.shift());
       setIndexKv(id);
-      setCurrentKV(kvArr.at(id));
-      setCurrentCopy(copyArr.at(id));
+      setCurrentKV(kvArr.at(id).kv);
+      setCurrentCopy(kvArr.at(id));
     }
   }
   return (
@@ -125,7 +129,7 @@ function KVsCarousel() {
             onMouseEnter={() => setIsHover(true)}
             onMouseLeave={() => setIsHover(false)}
           >
-            {cardArr.map((card) => (
+            {kvArr.map((card) => (
               <div
                 key={card.id}
                 className="cursor-pointer "
