@@ -1,4 +1,4 @@
-import React, { Suspense } from "react";
+import React, { Suspense, useState } from "react";
 
 import Loading from "./components/Loading";
 import { Fade } from "react-awesome-reveal";
@@ -8,6 +8,7 @@ import { copyvisuals } from "./data/data";
 function App() {
   const count = useSelector((state) => state.counter.value);
   const kvArr = copyvisuals.at(count);
+  const [isHover, setIsHover] = useState(false);
 
   const LazyComponent = React.lazy(() => import("./components/KVsCarousel"));
   return (
@@ -35,12 +36,18 @@ function App() {
               </h2>
             </div>
             <div
-              className={`flex gap-8 justify-center mx-auto  items-center max-lg:gap-6 max-sm:gap-4 border-2 border-red-700/0  p-12 hover:border-[${kvArr.compcol}]rounded-2xl max-w-[1720px] max-xl:p-8 max-lg:p-6 max-md:border-0 transition-all duration-300 hovechildren`}
-              style={{}}
+              className={`flex gap-8 justify-center mx-auto  items-center max-lg:gap-6 max-sm:gap-4 border-2 border-red-700/0  p-12 hover:border-[inherit] rounded-2xl max-w-[1720px] max-xl:p-8 max-lg:p-6 max-md:border-0 transition-all duration-300 hovechildren`}
+              style={{
+                border: `solid 2px ${
+                  isHover ? kvArr.compcol : "rgba(0,0,0, 0)"
+                }`,
+              }}
+              onMouseEnter={() => setIsHover(true)}
+              onMouseLeave={() => setIsHover(false)}
             >
               <div>
                 <img
-                  src="f1old.webp"
+                  src={kvArr.subkv1}
                   alt="f1 car"
                   className="w-full h-full imgCard transition-all duration-500 hover:rounded-lg max-md:rounded-none"
                 />
@@ -48,7 +55,7 @@ function App() {
 
               <div>
                 <img
-                  src="f1modern.webp"
+                  src={kvArr.subkv2}
                   alt="f1 car"
                   className="w-full h-full imgCard transition-all duration-500 hover:rounded-lg max-md:rounded-none"
                 />
@@ -92,7 +99,7 @@ function App() {
           <div className="grid grid-cols-3 max-sm:grid-cols-1 max-sm:gap-6 ">
             <div className="max-sm:flex max-sm:justify-center max-sm:items-center ">
               <img
-                src="f1team.webp"
+                src={kvArr.subkv3}
                 alt="f1 team"
                 className="h-full w-full max-sm:max-w-[75%] max-[475px]:max-w-[100%]"
               />
@@ -108,6 +115,9 @@ function App() {
           </div>
         </Fade>
       </div>
+      <footer className="text-neutral-200/40 pt-4 pb-8 text-center">
+        &copy;{new Date().getFullYear()} robfrontend
+      </footer>
     </div>
   );
 }
