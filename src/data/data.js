@@ -39,7 +39,7 @@ export const copyvisuals = [
     h2b: "the untamed forest trails",
     p: "Feel the adrenaline as cars tackle rugged terrain, sharp turns, and the raw beauty of the wilderness.",
     color: "text-green-600",
-    compcol: "#4d7c0f",
+    compcol: "#15803d",
     kv: "rally.webp",
     image: "cardRally.webp",
     id: 1,

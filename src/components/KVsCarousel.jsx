@@ -106,7 +106,7 @@ function KVsCarousel() {
             }}
           >
             <div
-              className={`${move} grid px-12 py-[200px] max-2xl:py-[100px] max-[1800px]:w-[65%] max-xl:py-[100px] max-lg:w-[80%] drop-shadow-lg gap-2 w-[50%] duration-500 max-md:w-full max-sm:drop-shadow-xl max-md:px-8`}
+              className={`${move} grid px-12 py-[150px] max-2xl:py-[100px] max-[1800px]:w-[65%] max-xl:py-[100px] max-lg:w-[80%] max-sm:py-12 drop-shadow-lg gap-2 w-[50%] duration-500 max-md:w-full max-sm:drop-shadow-xl max-md:px-8`}
             >
               <h2 className="text-6xl  font-bold uppercase max-xl:text-4xl max-sm:text-3xl">
                 {currentCopy.h2}
@@ -122,6 +122,26 @@ function KVsCarousel() {
               <p className="text-2xl max-xl:text-lg max-sm:text-base">
                 {currentCopy.p}
               </p>
+              <div className="flex gap-12 text-2xl p-8 w-full content-center  justify-center max-xl:text-lg max-sm:gap-6 max-sm:text-base max-xl:p-4">
+                <a
+                  href="#history"
+                  className="px-6 py-3 rounded-md font-bold active:shadow-2xl active:translate-y-[2px]  active:opacity-75 transition-all duration-300 bg-neutral-50/90 shadow-lg hover:-translate-y-1 active:scale-90 scale-[1.0000001] uppercase max-xl:px-4 max-xl:py-2"
+                  style={{
+                    color: `${currentCopy.compcol}`,
+                  }}
+                >
+                  History
+                </a>
+                <a
+                  href="#more"
+                  className="px-6 py-3 rounded-md font-bold active:shadow-2xl active:translate-y-[2px] active:opacity-75 transition-all duration-300 shadow-lg hover:-translate-y-1 active:scale-90 scale-[1.0000001] uppercase max-xl:px-4 max-xl:py-2"
+                  style={{
+                    backgroundColor: `${currentCopy.compcol}`,
+                  }}
+                >
+                  Learn more
+                </a>
+              </div>
             </div>
           </div>
           <div

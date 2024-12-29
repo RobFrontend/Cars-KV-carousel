@@ -23,7 +23,7 @@ function App() {
       </Suspense>
       <div className=" text-neutral-50 px-8 pt-32 overflow-hidden max-sm:px-4 pb-24 ">
         <Fade triggerOnce delay={250}>
-          <div className="grid gap-8 ">
+          <div className="grid gap-8 " id="history">
             <div className="pb-4">
               <h3
                 className={`text-3xl max-xl:text-2xl max-sm:text-xl`}
@@ -85,7 +85,7 @@ function App() {
       </div>
       <div className=" text-neutral-50 overflow-hidden pt-12 max-sm:px-4 pb-24  grid justify-center items-center object-cover ">
         <Fade triggerOnce delay={500}>
-          <div className="px-8 pb-12">
+          <div className="px-8 pb-12" id="more">
             <h3
               className={`text-3xl max-xl:text-2xl max-sm:text-xl`}
               style={{ color: `${kvArr.compcol}` }}
